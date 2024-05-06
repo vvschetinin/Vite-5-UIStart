@@ -22,6 +22,7 @@
     "last 3 version"
   ],
   "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
     "@types/node": "^20.12.7",
     "@vheemstra/vite-plugin-imagemin": "^2.0.0",
     "autoprefixer": "^10.4.19",
@@ -36,6 +37,7 @@
     "vite-plugin-purge": "^1.0.3"
   },
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "scss-reset": "^1.4.2"
   }
 }
