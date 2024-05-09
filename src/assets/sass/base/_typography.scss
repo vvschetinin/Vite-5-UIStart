@@ -11,12 +11,10 @@ body {
   font-weight: 400;
   line-height: $base-line-height;
   color: theme_text_color("dark");
-  @include minMedia(576) {
-    font-size: 1rem;
-  }
 }
 
 @include placeholderColor(inherit);
+
 .input-error,
 .form-error {
   color: theme_text_color("error");
@@ -32,8 +30,12 @@ h3 {
   line-height: 1.2;
 }
 
-p {
-  @extend body;
+p{
+  font-family: $text-font-stack;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: $base-line-height;
+  color: theme_text_color("dark");
   height: auto;
   &+p {
     margin-top: .5rem;
@@ -41,7 +43,6 @@ p {
       margin-top: .7rem;
     }
   }
-
   @media (max-height: 450px) and (orientation: landscape) {
     font-size: 16px;
   }
