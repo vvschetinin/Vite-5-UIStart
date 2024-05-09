@@ -120,3 +120,24 @@ $styles: (
 );
 @include generate_styles($styles);
 =========================================
+
+##### Примеры использования для переменных SCSS
+
+.example {
+font-family: $text-font-stack; / Font-family
+}
+
+=========================================
+
+.button {
+&:hover{
+background-color: $theme-color("brand-hover"); / Цвет фона при наведении
+}
+}
+
+.warning {
+color: $text-color("warning"); / Цвет текста #FFF
+background-color: $theme-color("warning"); / Цвет фона #F00
+}
+
+=========================================
