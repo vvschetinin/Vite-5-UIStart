@@ -22,41 +22,45 @@ https://www.npmjs.com/package/vite-plugin-purge
 
 #### Samples Code
 
+```
 content: [
-'./src/**/*.html',
-'./src/**/*.css',
-'./src/**/*.js',
-'./src/**/*.ts',
-'./src/**/*.vue',
+  './src/**/*.html',
+  './src/**/*.css',
+  './src/**/*.js',
+  './src/**/*.ts',
+  './src/**/*.vue',
 ],
+```
 
 #### Используемые миксины
 
 ##### Media Scrin
 
+```
 @mixin media($max-width){
   $screen-width: str-replace($max-width + '', 'px');
-@media screen and (max-width: #{$screen-width}px) {
-@content;
+  @media screen and (max-width: #{$screen-width}px) {
+    @content;
+  }
 }
-}
-========================================
+
 @include media(550) {
 font-size: 14px;
 }
-========================================
+```
 
-@mixin minMedia($min-width) {
+```
+@mixin minMedia($min-width){
   $screen-width: str-replace($min-width + '', 'px');
-@media screen and (min-width: #{$screen-width}px) {
-@content;
+  @media screen and (min-width: #{$screen-width}px) {
+    @content;
+  }
 }
-}
-========================================
+
 @include minMedia(550) {
-font-size: 18px;
+  font-size: 18px;
 }
-========================================
+```
 
 ##### Cтилизовать текст плейсхолдера
 
@@ -69,8 +73,6 @@ font-size: 18px;
 }
 ```
 
-=========================================
-
 Пример использования: Замените $gray на ваш выбранный цвет
 
 ```
@@ -78,8 +80,6 @@ font-size: 18px;
   @include placeholderColor($gray);
 }
 ```
-
-=========================================
 
 ##### Задать размер квадратного элемента
 
@@ -90,8 +90,6 @@ font-size: 18px;
 }
 ```
 
-=========================================
-
 Пример использования: Применит миксин с размером 2em
 
 ```
@@ -99,8 +97,6 @@ font-size: 18px;
   @include square(2em);
 }
 ```
-
-=========================================
 
 ##### Динамически генерирует CSS-стили на основе предоставленной карты классов
 
@@ -129,7 +125,6 @@ font-size: 18px;
 }
 ```
 
-=========================================
 Типовое применение:
 
 ```
@@ -143,8 +138,6 @@ $styles: (
 @include generate_styles($styles);
 ```
 
-=========================================
-
 ##### Примеры использования для переменных SCSS
 
 ```
@@ -153,20 +146,18 @@ $styles: (
 }
 ```
 
-=========================================
-
 ```
 .button {
   &:hover{
     background-color: $theme-color("brand-hover"); / Цвет фона при наведении
   }
 }
+```
 
+```
 .warning {
   color: $text-color("warning"); / Цвет текста #FFF
   background-color: $theme-color("warning"); / Цвет фона #F00
 }
 
 ```
-
-=========================================
