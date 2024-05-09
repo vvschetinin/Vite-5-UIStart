@@ -29,3 +29,94 @@ content: [
 './src/**/*.ts',
 './src/**/*.vue',
 ],
+
+#### Используемые миксины
+
+##### Media Scrin
+
+@mixin media($max-width){
+  $screen-width: str-replace($max-width + '', 'px');
+@media screen and (max-width: #{$screen-width}px) {
+@content;
+}
+}
+========================================
+@include media(550) {
+font-size: 14px;
+}
+========================================
+
+@mixin minMedia($min-width) {
+  $screen-width: str-replace($min-width + '', 'px');
+@media screen and (min-width: #{$screen-width}px) {
+@content;
+}
+}
+========================================
+@include minMedia(550) {
+font-size: 18px;
+}
+========================================
+
+##### Cтилизовать текст плейсхолдера
+
+@mixin placeholderColor($color) {
+  ::-webkit-input-placeholder {color: $color;}
+  ::-moz-placeholder {color: $color;}
+  :-moz-placeholder {color: $color;}
+  :-ms-input-placeholder {color: $color;}
+}
+=========================================
+Пример использования: Замените $gray на ваш выбранный цвет 
+.my-input {
+  @include placeholderColor($gray);
+}
+=========================================
+
+##### Задать размер квадратного элемента
+
+@mixin square($size: 1em) {
+width: $size;
+height: $size;
+}
+=========================================
+Пример использования: Применит миксин с размером 2em
+.another-element {
+@include square(2em);
+}
+=========================================
+
+##### Динамически генерирует CSS-стили на основе предоставленной карты классов
+
+@mixin generate_styles($styles) {
+  @each $class_name, $style_names in $styles {
+    #{$class_name} {
+@each $style_name, $style_value in $style_names {
+        #{$style_name}: #{$style_value};
+      }
+    }
+  }
+  @each $bp, $val in $grid-breakpoints {
+    @if $bp !='xs' {
+      @each $class_name, $style_names in $styles {
+        #{$class_name}--#{$bp} {
+          @include minMedia($val) {
+@each $style_name, $style_value in $style_names {
+              #{$style_name}: #{$style_value};
+            }
+          }
+        }
+      }
+    }
+  }
+}
+=========================================
+Типовое применение:
+$styles: (
+".display-block": (display: block),
+".display-inline": (display: inline),
+".display-table": (display: table),
+".display-none": (display: none)
+);
+@include generate_styles($styles);
+=========================================
