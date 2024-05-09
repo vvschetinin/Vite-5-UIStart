@@ -61,15 +61,16 @@ font-size: 18px;
 ##### Cтилизовать текст плейсхолдера
 
 @mixin placeholderColor($color) {
-  ::-webkit-input-placeholder {color: $color;}
-  ::-moz-placeholder {color: $color;}
-  :-moz-placeholder {color: $color;}
-  :-ms-input-placeholder {color: $color;}
+::-webkit-input-placeholder {color: $color;}
+::-moz-placeholder {color: $color;}
+:-moz-placeholder {color: $color;}
+:-ms-input-placeholder {color: $color;}
 }
 =========================================
-Пример использования: Замените $gray на ваш выбранный цвет 
+Пример использования: Замените $gray на ваш выбранный цвет
+
 .my-input {
-  @include placeholderColor($gray);
+@include placeholderColor($gray);
 }
 =========================================
 
@@ -81,6 +82,7 @@ height: $size;
 }
 =========================================
 Пример использования: Применит миксин с размером 2em
+
 .another-element {
 @include square(2em);
 }
@@ -103,15 +105,16 @@ height: $size;
           @include minMedia($val) {
 @each $style_name, $style_value in $style_names {
               #{$style_name}: #{$style_value};
-            }
-          }
-        }
-      }
-    }
-  }
+}
+}
+}
+}
+}
+}
 }
 =========================================
 Типовое применение:
+
 $styles: (
 ".display-block": (display: block),
 ".display-inline": (display: inline),
