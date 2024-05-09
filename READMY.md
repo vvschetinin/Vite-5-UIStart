@@ -138,6 +138,27 @@ $styles: (
 @include generate_styles($styles);
 ```
 
+##### Пример базовых переменных
+
+```
+
+$brand: #df4f4f !default;
+
+$text-color: (
+  "white": #fff,
+  "dark": #111,
+  "accent": $brand,
+  "error": #f00
+) !default;
+
+$theme-color: (
+  "primary": #fff,
+  "brand": $brand,
+  "brand-hover": darken($brand, 10%),
+  "brand-active": darken($brand, 20%),
+) !default;
+```
+
 ##### Примеры использования для переменных SCSS
 
 ```
