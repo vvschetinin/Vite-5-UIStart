@@ -60,58 +60,75 @@ font-size: 18px;
 
 ##### Cтилизовать текст плейсхолдера
 
+```
 @mixin placeholderColor($color) {
-::-webkit-input-placeholder {color: $color;}
-::-moz-placeholder {color: $color;}
-:-moz-placeholder {color: $color;}
-:-ms-input-placeholder {color: $color;}
+  ::-webkit-input-placeholder {color: $color;}
+  ::-moz-placeholder {color: $color;}
+  :-moz-placeholder {color: $color;}
+  :-ms-input-placeholder {color: $color;}
 }
+```
+
 =========================================
+
 Пример использования: Замените $gray на ваш выбранный цвет
 
+```
 .my-input {
-@include placeholderColor($gray);
+  @include placeholderColor($gray);
 }
+```
+
 =========================================
 
 ##### Задать размер квадратного элемента
 
+```
 @mixin square($size: 1em) {
-width: $size;
-height: $size;
+  width: $size;
+  height: $size;
 }
+```
+
 =========================================
+
 Пример использования: Применит миксин с размером 2em
 
+```
 .another-element {
-@include square(2em);
+  @include square(2em);
 }
+```
+
 =========================================
 
 ##### Динамически генерирует CSS-стили на основе предоставленной карты классов
 
+```
 @mixin generate_styles($styles) {
   @each $class_name, $style_names in $styles {
     #{$class_name} {
-@each $style_name, $style_value in $style_names {
+      @each $style_name, $style_value in $style_names {
         #{$style_name}: #{$style_value};
       }
     }
   }
   @each $bp, $val in $grid-breakpoints {
-    @if $bp !='xs' {
+    @if $bp != 'xs' {
       @each $class_name, $style_names in $styles {
         #{$class_name}--#{$bp} {
           @include minMedia($val) {
-@each $style_name, $style_value in $style_names {
+            @each $style_name, $style_value in $style_names {
               #{$style_name}: #{$style_value};
+            }
+          }
+        }
+      }
+    }
+  }
 }
-}
-}
-}
-}
-}
-}
+```
+
 =========================================
 Типовое применение:
 
@@ -122,6 +139,7 @@ $styles: (
   ".display-table": (display: table),
   ".display-none": (display: none)
 );
+
 @include generate_styles($styles);
 ```
 
@@ -129,21 +147,26 @@ $styles: (
 
 ##### Примеры использования для переменных SCSS
 
+```
 .example {
-font-family: $text-font-stack; / Font-family
+  font-family: $text-font-stack; / Font-family
 }
+```
 
 =========================================
 
+```
 .button {
-&:hover{
-background-color: $theme-color("brand-hover"); / Цвет фона при наведении
-}
+  &:hover{
+    background-color: $theme-color("brand-hover"); / Цвет фона при наведении
+  }
 }
 
 .warning {
-color: $text-color("warning"); / Цвет текста #FFF
-background-color: $theme-color("warning"); / Цвет фона #F00
+  color: $text-color("warning"); / Цвет текста #FFF
+  background-color: $theme-color("warning"); / Цвет фона #F00
 }
+
+```
 
 =========================================
