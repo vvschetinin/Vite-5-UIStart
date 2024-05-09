@@ -117,10 +117,10 @@ height: $size;
 
 ```
 $styles: (
-".display-block": (display: block),
-".display-inline": (display: inline),
-".display-table": (display: table),
-".display-none": (display: none)
+  ".display-block": (display: block),
+  ".display-inline": (display: inline),
+  ".display-table": (display: table),
+  ".display-none": (display: none)
 );
 @include generate_styles($styles);
 ```
