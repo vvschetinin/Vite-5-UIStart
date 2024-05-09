@@ -115,6 +115,7 @@ height: $size;
 =========================================
 Типовое применение:
 
+```
 $styles: (
 ".display-block": (display: block),
 ".display-inline": (display: inline),
@@ -122,6 +123,8 @@ $styles: (
 ".display-none": (display: none)
 );
 @include generate_styles($styles);
+```
+
 =========================================
 
 ##### Примеры использования для переменных SCSS
