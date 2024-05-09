@@ -45,7 +45,7 @@ content: [
 }
 
 @include media(550) {
-font-size: 14px;
+  font-size: 14px;
 }
 ```
 
