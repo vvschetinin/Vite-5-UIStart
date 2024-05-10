@@ -5,9 +5,9 @@ html {
   }
 }
 
-body {
+body, p {
   font-family: $text-font-stack;
-  font-size: 14px;
+  font-size: $base-font-size;
   font-weight: 400;
   line-height: $base-line-height;
   color: theme_text_color("dark");
@@ -31,15 +31,10 @@ h3 {
 }
 
 p{
-  font-family: $text-font-stack;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: $base-line-height;
-  color: theme_text_color("dark");
   height: auto;
   &+p {
     margin-top: .5rem;
-    @include minMedia(800) {
+    @include minMedia(768) {
       margin-top: .7rem;
     }
   }
