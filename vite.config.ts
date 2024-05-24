@@ -11,8 +11,8 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        entryway: resolve(__dirname, 'index.html'),
-        main: resolve(__dirname, 'view/main/index.html'),
+        entryway: resolve(__dirname, 'view/index.html'),
+        main: resolve(__dirname, 'view/about/index.html'),
       },
     },
   },
